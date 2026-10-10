@@ -1,0 +1,48 @@
+{
+    "actual_profil": "very_basic",
+    "profiles": {
+        "default": {
+            "description": "Domyślny tryb który ma nie za długi, nie za krótki delay i wystarczające jednosktki dla przeciętnego użytkownika",
+            "delay":500,
+            "ram_round": [
+                1,
+                0
+            ],
+            "round_cpu_and_ram_percent":false
+        },
+        "advanced": {
+            "description": "Tryb zaawansowany, z szybszym delayem. Idealny dla tych którzy chcą szybszej reakcji i większej dokładności",
+            "delay": 300,
+            "ram_round": [
+                2,
+                1
+            ],
+            "round_cpu_and_ram_percent":false
+        },
+        "very_advanced": {
+            "description": "Tryb bardzo zaawansowany, z bardzo krótkim delayem i dużą dokładnością. dla tych, którzy potrzebują z jakiegoś powodu dokładniejszych i szybszych danych",
+            "delay": 100,
+            "ram_round": [
+                3,
+                2
+            ],
+            "round_cpu_and_ram_percent":false
+        },
+        "very_basic": {
+            "description": "Tryb bardzo podstawowy, długim delayem i małą dokładnością. Dla tych, którzy nie za bardzo rozumieją to, i/lub nie potrzebna im dokładność",
+            "delay": 1000,
+            "ram_round": [
+                0,
+                0
+            ],
+            "round_cpu_and_ram_percent":true
+        }
+    },
+    "description": [
+        "ram_round: tablica, z czego pierwszy element to liczba po przecinku jaka może się pojawić w ogólnym zużyciu ram dla PC, a druga to liczba po przecinku jaka może się pojawić w zużyciu ram dla Top 5 procesów pod RAM.",
+        "delay: czas w milisekundach co ile się odświeżają dane",
+        "round_cpu_and_ram_percent: true - zaokrąglanie do liczby całkowitej, zużycia procesora i zużycia procentowo RAM",
+        "actual_profil: aktualny profil. Taki profil musi być w ''profiles''",
+        "description(w ''profiles''): opis danego profilu"
+    ]
+}
