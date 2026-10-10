@@ -1,4 +1,0 @@
-RAM     |GPU     |CPU     |KOLOR
-0-50    | 0-50   | 0-50   | //*zielony
-50-80   | 50-85  | 50-70  | //;pomarańczowy
-80-100  | 85-100 | 70-100 | //!czerwony
