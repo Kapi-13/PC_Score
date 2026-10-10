@@ -61,11 +61,13 @@ for i in range(3,5):
 title = ctk.CTkLabel(app,text="DASHBOARD NA ŻYWO", font=("Arial", 25, "bold"), text_color="lightgray")
 # title.place(rely=0, relx=0.5, anchor="n")
 
-cpu_lbl = ctk.CTkLabel(app)
+cpu_lbl = ctk.CTkLabel(app, text="Zużycie CPU: 45.5%")
 
-gpu_lbl = ctk.CTkLabel(app)
 
-ram_lbl = ctk.CTkLabel(app)
+gpu_lbl = ctk.CTkLabel(app, text="Zużycie GPU: 45.5%")
+
+
+ram_lbl = ctk.CTkLabel(app, text="Zużycie RAM: 10.4GB/15.1GB - 70.5%")
 
 
 
