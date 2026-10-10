@@ -15,6 +15,8 @@ import modules
 # === inne ===
 import json
 
+NUMBER_OF_PROCESSES = 5
+
 class textbox_manager:
     def __init__(self):
         self.textbox: ctk.CTkTextbox
@@ -53,10 +55,19 @@ app.grid_rowconfigure(1, weight=1)
 app.grid_rowconfigure(2, weight=1)
 app.grid_columnconfigure(0, weight=1)
 
+for i in range(3,5):
+    print(i)
 
-
-# title = ctk.CTkLabel(app,text="DASHBOARD NA ŻYWO", font=("Arial", 25, "bold"), text_color="lightgray")
+title = ctk.CTkLabel(app,text="DASHBOARD NA ŻYWO", font=("Arial", 25, "bold"), text_color="lightgray")
 # title.place(rely=0, relx=0.5, anchor="n")
+
+cpu_lbl = ctk.CTkLabel(app)
+
+gpu_lbl = ctk.CTkLabel(app)
+
+ram_lbl = ctk.CTkLabel(app)
+
+
 
 # frame1 = ctk.CTkFrame(app, fg_color="transparent", border_width=2, border_color="red")
 # frame1.grid(row=0, column=0, sticky="nsew")
@@ -96,7 +107,7 @@ def start():
         # ? vram_used_gb = round(memory.used / (1024**3), 2)
         # ? vram_total_gb = round(memory.total / (1024**3), 2)
     # === TOP 5 PROCESÓW (po RAM-ie) ===
-    top5 = modules.wez_top_procesy_po_ram(5)
+    top5 = modules.wez_top_procesy_po_ram(NUMBER_OF_PROCESSES)
 
     text.text(f"Zużycie CPU: {cpu_usage}%\n", "succ" if cpu_usage <= 50 else "warn" if cpu_usage <= 70 else "err")
     text.text(f"Zużycie GPU: {gpu_usage}%\n", "succ" if gpu_usage <= 50 else "warn" if gpu_usage <= 85 else "err")
