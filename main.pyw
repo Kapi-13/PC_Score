@@ -60,16 +60,16 @@ for i in range(3,5):
     print(i)
 
 title = ctk.CTkLabel(app,text="DASHBOARD NA ŻYWO", font=("Arial", 25, "bold"), text_color="lightgray")
-# title.place(rely=0, relx=0.5, anchor="n")
+title.grid(row=0)
 
 cpu_lbl = ctk.CTkLabel(app, text="Zużycie CPU: 45.5%", font=("Consolas", 20))
-cpu_lbl.grid()
+cpu_lbl.grid(row=1)
 
 gpu_lbl = ctk.CTkLabel(app, text="Zużycie GPU: 45.5%", font=("Consolas", 20))
-gpu_lbl.grid()
+gpu_lbl.grid(row=2)
 
 ram_lbl = ctk.CTkLabel(app, text="Zużycie RAM: 10.4GB/15.1GB - 70.5%", font=("Consolas", 20))
-ram_lbl.grid()
+ram_lbl.grid(row=3)
 
 
 # frame1 = ctk.CTkFrame(app, fg_color="transparent", border_width=2, border_color="red")
