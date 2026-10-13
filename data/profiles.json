@@ -1,5 +1,5 @@
 {
-    "actual_profil": "very_basic",
+    "actual_profil": "default",
     "profiles": {
         "default": {
             "description": "Domyślny tryb który ma nie za długi, nie za krótki delay i wystarczające jednosktki dla przeciętnego użytkownika",

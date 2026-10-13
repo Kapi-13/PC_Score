@@ -48,7 +48,7 @@ app = ctk.CTk()
 app.title("DASHBOARD NA ŻYWO")
 app.geometry("600x500")
 
-#app.resizable(False, False)
+app.resizable(False, False)
 
 app.grid_rowconfigure(0, weight=1) #*tytuł
 app.grid_rowconfigure(1, weight=1) #* cpu_lbl
@@ -60,16 +60,16 @@ for i in range(3,5):
     print(i)
 
 title = ctk.CTkLabel(app,text="DASHBOARD NA ŻYWO", font=("Arial", 25, "bold"), text_color="lightgray")
-title.grid(row=0)
+title.grid(row=0, column=0)
 
 cpu_lbl = ctk.CTkLabel(app, text="Zużycie CPU: 45.5%", font=("Consolas", 20))
-cpu_lbl.grid(row=1)
+cpu_lbl.grid(row=1, column=0)
 
 gpu_lbl = ctk.CTkLabel(app, text="Zużycie GPU: 45.5%", font=("Consolas", 20))
-gpu_lbl.grid(row=2)
+gpu_lbl.grid(row=2, column=0)
 
 ram_lbl = ctk.CTkLabel(app, text="Zużycie RAM: 10.4GB/15.1GB - 70.5%", font=("Consolas", 20))
-ram_lbl.grid(row=3)
+ram_lbl.grid(row=3, column=0)
 
 
 # frame1 = ctk.CTkFrame(app, fg_color="transparent", border_width=2, border_color="red")
@@ -79,7 +79,7 @@ ram_lbl.grid(row=3)
 # frame2.grid(row=1, column=0, sticky="nsew")
 
 textbox = ctk.CTkTextbox(app, state="disabled", font=("Consolas", 20))
-textbox.grid(row=2, column=0, sticky="nsew")
+# textbox.grid(row=2, column=0, sticky="nsew")
 textbox.tag_config("default", foreground="lightgray")
 textbox.tag_config("err", foreground="red")
 textbox.tag_config("warn", foreground="orange")
@@ -112,9 +112,9 @@ def start():
     # === TOP 5 PROCESÓW (po RAM-ie) ===
     top5 = modules.wez_top_procesy_po_ram(NUMBER_OF_PROCESSES)
 
-    text.text(f"Zużycie CPU: {cpu_usage}%\n", "succ" if cpu_usage <= 50 else "warn" if cpu_usage <= 70 else "err")
-    text.text(f"Zużycie GPU: {gpu_usage}%\n", "succ" if gpu_usage <= 50 else "warn" if gpu_usage <= 85 else "err")
-    text.text(f"Zużycie RAM: {ram_used_gb}/{ram_total_gb}GB - {ram_percent}%\n", "succ" if ram_percent <= 50 else "warn" if ram_percent <= 80 else "err")
+    cpu_lbl.configure(text=f"Zużycie CPU: {cpu_usage}%\n", text_color="green" if cpu_usage <= 50 else "orange" if cpu_usage <= 70 else "red")
+    gpu_lbl.configure(text=f"Zużycie GPU: {gpu_usage}%\n", text_color="green" if gpu_usage <= 50 else "orange" if gpu_usage <= 85 else "red")
+    ram_lbl.configure(text=f"Zużycie RAM: {ram_used_gb}/{ram_total_gb}GB - {ram_percent}%\n", text_color="green" if ram_percent <= 50 else "orange" if ram_percent <= 80 else "red")
     text.text(f"\nTop 5 procesów pod RAM:")
     for id, process in enumerate(top5):
         text.text(f"\n    #{id + 1}: {process[0]} {process[1]}MB")
